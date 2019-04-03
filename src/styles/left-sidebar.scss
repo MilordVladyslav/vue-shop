@@ -1,0 +1,57 @@
+.left-sidebar {
+  line-height: 22px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: -2px 0px 5px;
+
+  .clear-filters {
+    margin-top: 50px;
+    font-weight: bold;
+    color: $light-red;
+    cursor: pointer;
+  }
+
+  .form-wrapper {
+   width: 70%;
+  }
+  .search {
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+  }
+  .from-price {
+    margin-top: 10px;
+  }
+  .item-name {
+    width: 98%;
+    color: $dark-green;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .select {
+    width: 40%;
+    margin-top: 20px;
+    font-size: 16px;
+    color: $dark-green;
+  }
+  .gender, .color {
+    margin-right: 10px;
+  }
+
+  .noUi-horizontal {
+    height: 10px;
+    .noUi-handle {
+      width: 14px;
+      height: 20px;
+      &:after, &:before {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+  right: -9px;
+}

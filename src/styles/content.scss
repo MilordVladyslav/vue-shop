@@ -1,0 +1,15 @@
+
+.content {
+  div {
+    border-radius: 5px;
+  }
+  img {
+    max-width: 70%;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.left-sidebar, .right-sidebar {
+  width: 25%;
+}
