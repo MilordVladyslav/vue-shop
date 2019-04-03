@@ -29,6 +29,15 @@ export default {
     Item
   },
   methods: {
+    scroll () {
+      window.onscroll = () => {
+        let bottomOfWindow = document.documentElement.scrollTop +
+            window.innerHeight === document.documentElement.offsetHeight
+        if (bottomOfWindow) {
+          this.$store.dispatch('getItems')
+        }
+      }
+    },
     changeView () {
       this.list = !this.list
       this.appearanceImageStyle()
@@ -42,6 +51,7 @@ export default {
   },
   created () {
     this.$store.dispatch('getItems')
+    this.scroll()
   },
   mounted: function () {
     this.appearanceImageStyle()
