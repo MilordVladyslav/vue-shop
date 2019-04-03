@@ -7,7 +7,7 @@
       </div>
       <div class="nav">
         <ul>
-          <li><a href="#">Shop</a></li>
+          <router-link to="/"><li><a href="#">Shop</a></li></router-link>
           <li><a href="#">About us</a></li>
           <li><a href="#">Our blog</a></li>
         </ul>

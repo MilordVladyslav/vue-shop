@@ -47,7 +47,7 @@ app.get('/items/:name/:fromprice/:toprice/:gender/:category/:color/:size', (req,
     const value = JSON.parse(data)
     let trueValidation = {}
     for (let key in req.params) {
-      if (req.params[key] !== 'null' && req.params[key] !== '') {
+      if (req.params[key] !== 'null' && req.params[key] !== '' && req.params[key] !== 'undefined') {
         trueValidation[key] = req.params[key].toLowerCase()
       }
     }

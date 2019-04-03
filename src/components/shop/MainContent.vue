@@ -50,6 +50,11 @@ export default {
     }
   },
   created () {
+    const requirements = {}
+    for (let key in this.$router.history.current.query) {
+      requirements[key] = this.$router.history.current.query[key] ? `this.$router.history.current.query[key` : ''
+    }
+    this.$store.dispatch('insertRequirements', requirements)
     this.$store.dispatch('getItems')
     this.scroll()
   },

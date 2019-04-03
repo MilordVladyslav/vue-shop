@@ -14,7 +14,7 @@ import MainContent from './MainContent.vue'
 import RightSidebar from './RightSidebar.vue'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'Content',
+  name: 'Shop',
   computed: {
     ...mapGetters([
       'items'

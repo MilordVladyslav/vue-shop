@@ -4,7 +4,7 @@
     <div class="cart-items-wrapper">
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -16,7 +16,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -28,7 +28,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -40,7 +40,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -52,7 +52,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -64,7 +64,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -76,7 +76,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -88,7 +88,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -100,7 +100,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -112,7 +112,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>
@@ -124,7 +124,7 @@
       </div>
       <div class="cart-item">
         <div class="cart-picture">
-          <img src="../assets/awesomeshirt.jpeg" alt="your item">
+          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
         </div>
         <div class="cart-description">
           <h3 class="name">Lorem ipsum</h3>

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import * as noUiSlider from '../../node_modules/nouislider/distribute/nouislider.min.js'
+import * as noUiSlider from '../../../node_modules/nouislider/distribute/nouislider.min.js'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'LeftSidebar',
@@ -84,9 +84,19 @@ export default {
   methods: {
     submitForm (evt) {
       evt.preventDefault()
+      this.$router.push({
+        query: {
+          name: this.requirements.name ? `${this.requirements.name}` : '',
+          fromPrice: this.requirements.fromPrice ? `${this.requirements.fromPrice}` : '',
+          toPrice: this.requirements.toPrice ? `${this.requirements.toPrice}` : '',
+          gender: this.requirements.gender ? `${this.requirements.gender}` : '',
+          category: this.requirements.category ? `${this.requirements.category}` : '',
+          color: this.requirements.color ? `${this.requirements.color}` : '',
+          size: this.requirements.size ? `${this.requirements.size}` : ''
+        }
+      })
       this.requirements.fromPrice = document.querySelector('#from-price-place').innerHTML
       this.requirements.toPrice = document.querySelector('#to-price-place').innerHTML
-      console.log(this.requirements.toPrice)
       this.$store.dispatch('insertRequirements', this.requirements)
       this.$store.dispatch('getItems')
     }
@@ -108,7 +118,7 @@ export default {
         document.querySelector('#from-price-place').innerHTML = Math.floor(values[0])
         document.querySelector('#to-price-place').innerHTML = Math.floor(values[1])
       })
-    }, 100)
+    }, 300)
   }
 }
 </script>

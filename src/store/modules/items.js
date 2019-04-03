@@ -28,7 +28,6 @@ const actions = {
       for (let i = 0; i < state.items.length + 10; i++) {
         if (response.data[i]) nextPackItems.push(response.data[i])
       }
-      console.log('started')
       commit('UPDATE_ITEMS', nextPackItems)
     })
   },

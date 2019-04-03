@@ -4,7 +4,7 @@
     <div class="parameters">
 
       <div class="picture">
-        <img src="../assets/awesomeshirt.jpeg" alt="">
+        <img src="../../assets/awesomeshirt.jpeg" alt="">
       </div>
       <div class="description">
         <h3 class="item-title">Lorem ipsum</h3>

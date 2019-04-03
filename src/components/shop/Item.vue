@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div class="product-picture">
-      <img :src="require('../assets/' + item.image_tag)">
+      <img :src="require('../../assets/' + item.image_tag)">
       <!--:src="require('../../assets/' + productItem.image_tag)-->
     </div>
     <div class="description-price">
