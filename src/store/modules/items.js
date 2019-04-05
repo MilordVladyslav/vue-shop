@@ -25,7 +25,7 @@ const actions = {
     ${state.requirements.size}/
     `).then((response) => {
       let nextPackItems = []
-      for (let i = 0; i < state.items.length + 10; i++) {
+      for (let i = 0; i < state.items.length + 12; i++) {
         if (response.data[i]) nextPackItems.push(response.data[i])
       }
       commit('UPDATE_ITEMS', nextPackItems)
@@ -37,7 +37,7 @@ const actions = {
     })
   },
   insertRequirements ({ commit }, requirements) {
-    console.log(requirements)
+    // console.log(requirements)
     commit('UPDATE_REQUIREMENTS', requirements)
   }
 }

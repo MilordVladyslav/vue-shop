@@ -31,12 +31,7 @@
         </select>
         <select name="size" id="size" class="size select" v-model="requirements.size">
           <option value="" selected>Size:</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
           <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
         </select>
         <button class="search"> Search </button>
       </form>
@@ -84,6 +79,8 @@ export default {
   methods: {
     submitForm (evt) {
       evt.preventDefault()
+      this.requirements.fromPrice = document.querySelector('#from-price-place').innerHTML
+      this.requirements.toPrice = document.querySelector('#to-price-place').innerHTML
       this.$router.push({
         query: {
           name: this.requirements.name ? `${this.requirements.name}` : '',
@@ -95,8 +92,6 @@ export default {
           size: this.requirements.size ? `${this.requirements.size}` : ''
         }
       })
-      this.requirements.fromPrice = document.querySelector('#from-price-place').innerHTML
-      this.requirements.toPrice = document.querySelector('#to-price-place').innerHTML
       this.$store.dispatch('insertRequirements', this.requirements)
       this.$store.dispatch('getItems')
     }

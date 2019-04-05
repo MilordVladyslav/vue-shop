@@ -8,13 +8,11 @@
 <script>
 
 import Header from './components/Header.vue'
-// import Shop from './components/shop/Shop.vue'
-
+// import Items from './components/shop/Items.vue'
 export default {
   name: 'App',
   components: {
     Header
-    // Shop
   }
 }
 

@@ -1,24 +1,21 @@
 <template>
   <div class="item-selected">
-    <p class="history-back">Go Back</p>
+    <p class="history-back" @click="goBack">Go Back</p>
     <div class="parameters">
 
       <div class="picture">
-        <img src="../../assets/awesomeshirt.jpeg" alt="">
+        <img :src="require('../../assets/' + item.image_tag)">
       </div>
       <div class="description">
-        <h3 class="item-title">Lorem ipsum</h3>
+        <h3 class="item-title">{{ item.nameitem }}</h3>
         <p class="item-description">
-          Description lorem ipsum dolor sit amet upen un doloren dezoan
-          Description lorem ipsum dolor sit amet upen un doloren dezoan
-          Description lorem ipsum dolor sit amet upen un doloren dezoan
-          Description lorem ipsum dolor sit amet upen un doloren dezoan
+          {{ item.description }}
         </p>
         <div class="item-parameters">
-          <p> Gender: male </p>
-          <p> Category: t-shirt </p>
-          <p> Color: blue </p>
-          <p> Size: M </p>
+          <p> Gender: {{item.gender}} </p>
+          <p> Category: {{item.category}} </p>
+          <p> Color: {{item.color}} </p>
+          <p> Size: {{item.size}} </p>
           <p class="price"> Price: <span>$63 </span></p>
         </div>
         <div class="add-to-cart"> ToCart </div>
@@ -29,7 +26,24 @@
 
 <script>
 export default {
-  name: 'ItemSelected'
+  name: 'ItemSelected',
+  computed: {
+    item: function () {
+      const item = {}
+      item.description = this.$router.history.current.query.description
+      for (let key in this.$router.history.current.params) {
+        item[key] = this.$router.history.current.params[key] ? `${this.$router.history.current.params[key]}` : ''
+      }
+      return item
+    }
+  },
+  methods: {
+    goBack () {
+      window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/')
+    }
+  }
 }
 </script>
 
