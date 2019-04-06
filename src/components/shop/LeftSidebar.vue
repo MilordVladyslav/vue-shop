@@ -5,18 +5,18 @@
         <p>Name</p>
         <input type="text" id="item-name" class="item-name" name="name" v-model="requirements.name">
         <div id="slider" class="ranger"></div>
-        <p class="from-price">From: $<span id="from-price-place">{{minValue}}</span></p>
-        <p class="to-price">To: $<span id="to-price-place">{{maxValue}}</span></p>
+        <p class="from-price">From: <span id="from-price-place"></span></p>
+        <p class="to-price">To: <span id="to-price-place"></span></p>
         <!--<div v-for="item in items" :key="item.id">-->
           <!--{{item.name}}-->
         <!--</div>-->
         <select name="gender" id="gender" class="gender select" v-model="requirements.gender">
-          <option value="" selected>Gender:</option>
+          <option value="">Gender:</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
         <select name="category" id="category" class="category select" v-model="requirements.category">
-          <option value="" selected>Category:</option>
+          <option value="" >Category:</option>
           <option value="Shirt">Shirt</option>
           <option value="T-shirt">T-shirt</option>
           <option value="Skirt">Skirt</option>
@@ -30,12 +30,12 @@
           <option value="Red">Red</option>
         </select>
         <select name="size" id="size" class="size select" v-model="requirements.size">
-          <option value="" selected>Size:</option>
+          <option value="">Size:</option>
           <option value="M">M</option>
         </select>
         <button class="search"> Search </button>
       </form>
-      <p class="clear-filters">Clear Filters</p>
+      <p class="clear-filters" @click="clearFilters">Clear Filters</p>
     </div>
   </div>
 </template>
@@ -68,17 +68,26 @@ export default {
     ]),
     ...mapActions([
       'insertRequirements'
-    ]),
-    minValue: function () {
-      return this.priceZone.fromPrice
-    },
-    maxValue: function () {
-      return this.priceZone.toPrice
-    }
+    ])
   },
   methods: {
+    clearFilters () {
+      this.requirements = {
+        name: '',
+        fromPrice: '',
+        toPrice: '',
+        gender: '',
+        category: '',
+        color: '',
+        size: ''
+      }
+    },
+    goBack () {
+      if (this.$router.history.current.name === 'itemselected' && window.history.length > 1) this.$router.go(-1)
+    },
     submitForm (evt) {
       evt.preventDefault()
+      this.goBack()
       this.requirements.fromPrice = document.querySelector('#from-price-place').innerHTML
       this.requirements.toPrice = document.querySelector('#to-price-place').innerHTML
       this.$router.push({
@@ -92,6 +101,7 @@ export default {
           size: this.requirements.size ? `${this.requirements.size}` : ''
         }
       })
+      console.log(this.requirements)
       this.$store.dispatch('insertRequirements', this.requirements)
       this.$store.dispatch('getItems')
     }

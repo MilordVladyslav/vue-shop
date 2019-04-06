@@ -16,7 +16,7 @@
           <p> Category: {{item.category}} </p>
           <p> Color: {{item.color}} </p>
           <p> Size: {{item.size}} </p>
-          <p class="price"> Price: <span>$63 </span></p>
+          <p class="price"> Price: <span> {{item.price}} </span></p>
         </div>
         <div class="add-to-cart"> ToCart </div>
       </div>
@@ -43,6 +43,9 @@ export default {
         ? this.$router.go(-1)
         : this.$router.push('/')
     }
+  },
+  created () {
+    console.log(this.$router.history.current.name)
   }
 }
 </script>

@@ -50,6 +50,10 @@
       }
     }
   }
+
+  #from-price-place, #to-price-place {
+    color: $medium-green;
+  }
 }
 
 html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {

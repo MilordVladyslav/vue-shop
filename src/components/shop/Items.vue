@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div class="appearance" id="appearance" @click="changeView">
-      <div class="image" id="image"></div>
+    <div class="appearance-wrapper">
+      <div class="appearance" id="appearance" @click="changeView">
+        <div class="image" id="image"></div>
+      </div>
     </div>
-    <div :class="['items-wrapper', {'list': list}]">
+    <div :class="['items-wrapper', {'list': appearanceSettings.list}]">
       <Item v-for="item in items" :key="item.id" :item="item"></Item>
     </div>
   </div>
@@ -14,15 +16,11 @@ import Item from './Item.vue'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Items',
-  data: () => {
-    return {
-      list: false
-    }
-  },
   computed: {
     ...mapGetters([
       'items',
-      'requirements'
+      'requirements',
+      'appearanceSettings'
     ])
   },
   components: {
@@ -42,12 +40,13 @@ export default {
       console.log('hello there')
     },
     changeView () {
-      this.list = !this.list
+      this.appearanceSettings.list = !this.appearanceSettings.list
+      this.$store.dispatch('insertAppearanceSettings', this.appearanceSettings)
       this.appearanceImageStyle()
     },
     appearanceImageStyle () {
       const image = document.querySelector('#image')
-      this.list === false
+      this.appearanceSettings.list === false
         ? image.style.transform = 'rotate(90deg)'
         : image.style.transform = 'rotate(0deg)'
     },
@@ -64,7 +63,6 @@ export default {
     '$route': 'receiveData'
   },
   created () {
-    console.log('hello created')
     this.receiveData()
     this.scroll()
   },

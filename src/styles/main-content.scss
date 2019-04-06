@@ -4,10 +4,15 @@
   flex-direction: column;
   .items-wrapper {
     display: flex;
-    justify-content: space-evenly;
     align-items: flex-start;
+    justify-content: space-evenly;
     align-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .appearance-wrapper {
+    display: flex;
+    justify-content: flex-end;
   }
 
   .appearance {
@@ -63,7 +68,10 @@
       font-weight: bold;
     }
   }
-
+  .to-cart-block {
+    display: flex;
+    justify-content: flex-end;
+  }
   .price-cart-block {
     .price {
       color: $medium-green;

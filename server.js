@@ -26,9 +26,6 @@ app.get('/items/pricevalues', (req, res) => {
     function compareNumeric (a, b) {
       return a.price - b.price
     }
-    // console.log(values[0])
-    //      fromPrice: values[0].price,
-    //       toPrice: values[values[values.length - 1].price]
     res.send({
       fromPrice: values[0].price,
       toPrice: values[values.length - 1].price
@@ -39,8 +36,7 @@ app.get('/items/:name/:fromprice/:toprice/:gender/:category/:color/:size', (req,
 
   fs.readFile(ITEMS_DATA_FILE, (err, data) => {
     res.setHeader('Cache-Control', 'no-cache')
-    // console.log(req.params.fromprice)
-    // console.log(req.params.toprice)
+
     for (let key in req.params) {
       req.params[key] = noSpace(req.params[key])
     }
