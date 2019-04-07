@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 const app = express()
-
+const FAKE_DELAY = 3000
 const ITEMS_DATA_FILE = path.join(__dirname, 'items.json')
 
 app.set('port', (process.env.PORT || 3000))
@@ -33,26 +33,27 @@ app.get('/items/pricevalues', (req, res) => {
   })
 })
 app.get('/items/:name/:fromprice/:toprice/:gender/:category/:color/:size', (req, res) => {
+  setTimeout(() => {
+    fs.readFile(ITEMS_DATA_FILE, (err, data) => {
+      res.setHeader('Cache-Control', 'no-cache')
 
-  fs.readFile(ITEMS_DATA_FILE, (err, data) => {
-    res.setHeader('Cache-Control', 'no-cache')
-
-    for (let key in req.params) {
-      req.params[key] = noSpace(req.params[key])
-    }
-    const value = JSON.parse(data)
-    let trueValidation = {}
-    for (let key in req.params) {
-      if (req.params[key] !== 'null' && req.params[key] !== '' && req.params[key] !== 'undefined') {
-        trueValidation[key] = req.params[key].toLowerCase()
+      for (let key in req.params) {
+        req.params[key] = noSpace(req.params[key])
       }
-    }
-    let filteredValues = value.filter(compare)
-    function compare (element) {
-      return compareKeyValues(element, trueValidation)
-    }
-    res.send(filteredValues)
-  })
+      const value = JSON.parse(data)
+      let trueValidation = {}
+      for (let key in req.params) {
+        if (req.params[key] !== 'null' && req.params[key] !== '' && req.params[key] !== 'undefined') {
+          trueValidation[key] = req.params[key].toLowerCase()
+        }
+      }
+      let filteredValues = value.filter(compare)
+      function compare (element) {
+        return compareKeyValues(element, trueValidation)
+      }
+      res.send(filteredValues)
+    })
+  }, FAKE_DELAY)
 })
 function compareKeyValues (element, trueValidation) {
   let unsame = []

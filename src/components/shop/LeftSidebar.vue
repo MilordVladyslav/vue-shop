@@ -7,9 +7,6 @@
         <div id="slider" class="ranger"></div>
         <p class="from-price">From: <span id="from-price-place"></span></p>
         <p class="to-price">To: <span id="to-price-place"></span></p>
-        <!--<div v-for="item in items" :key="item.id">-->
-          <!--{{item.name}}-->
-        <!--</div>-->
         <select name="gender" id="gender" class="gender select" v-model="requirements.gender">
           <option value="">Gender:</option>
           <option value="Male">Male</option>
@@ -102,6 +99,7 @@ export default {
         }
       })
       console.log(this.requirements)
+      this.$store.dispatch('changeLoadingStatus')
       this.$store.dispatch('insertRequirements', this.requirements)
       this.$store.dispatch('getItems')
     }

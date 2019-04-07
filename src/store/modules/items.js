@@ -28,6 +28,7 @@ const actions = {
       for (let i = 0; i < state.items.length + 12; i++) {
         if (response.data[i]) nextPackItems.push(response.data[i])
       }
+      commit('UPDATE_LOADING', false)
       commit('UPDATE_ITEMS', nextPackItems)
     })
   },

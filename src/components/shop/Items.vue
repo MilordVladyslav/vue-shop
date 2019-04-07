@@ -1,18 +1,23 @@
 <template>
   <div>
     <div class="appearance-wrapper">
+
       <div class="appearance" id="appearance" @click="changeView">
         <div class="image" id="image"></div>
       </div>
     </div>
-    <div :class="['items-wrapper', {'list': appearanceSettings.list}]">
+    <div :class="['items-wrapper', {'list': appearanceSettings.list}]" v-if="!loading">
       <Item v-for="item in items" :key="item.id" :item="item"></Item>
+    </div>
+    <div v-else class="loader">
+      <Spinner name="line-spin-fade-loader" color="#037182"/>
     </div>
   </div>
 </template>
 
 <script>
 import Item from './Item.vue'
+import Spinner from 'vue-spinkit'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Items',
@@ -20,10 +25,12 @@ export default {
     ...mapGetters([
       'items',
       'requirements',
-      'appearanceSettings'
+      'appearanceSettings',
+      'loading'
     ])
   },
   components: {
+    Spinner,
     Item
   },
   methods: {
@@ -35,9 +42,6 @@ export default {
           this.$store.dispatch('getItems')
         }
       }
-    },
-    sayhi () {
-      console.log('hello there')
     },
     changeView () {
       this.appearanceSettings.list = !this.appearanceSettings.list

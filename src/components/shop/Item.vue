@@ -56,6 +56,7 @@
       </div>
       <div class="price-cart-block">
         <p class="price">${{item.price}}</p>
+        <p class="size">Size:{{item.size}}</p>
         <router-link :to="{
         name: 'itemselected',
         params: {
