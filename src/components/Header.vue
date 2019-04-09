@@ -7,9 +7,9 @@
       </div>
       <div class="nav">
         <ul>
-          <router-link to="/"><li><a href="#">Shop</a></li></router-link>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Our blog</a></li>
+          <li><router-link to="/">Shop</router-link></li>
+          <li><router-link to="/about">About Us</router-link></li>
+          <li><router-link to="/blog">Our Blog</router-link></li>
         </ul>
       </div>
     </div>

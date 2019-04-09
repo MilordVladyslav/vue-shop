@@ -1,8 +1,6 @@
 const state = {
   appearanceSettings: {
-    list: false,
-    sortParam: '',
-    direction: 'down'
+    list: false
   },
   loading: true
 }

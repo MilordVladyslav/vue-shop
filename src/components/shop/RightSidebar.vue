@@ -2,149 +2,43 @@
   <div class="right-sidebar">
     <h2>Your Cart</h2>
     <div class="cart-items-wrapper">
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-picture">
-          <img src="../../assets/awesomeshirt.jpeg" alt="your item">
-        </div>
-        <div class="cart-description">
-          <h3 class="name">Lorem ipsum</h3>
-          <div class="parameters">
-            <p class="price">$63</p>
-            <p class="amount">Amount: 1</p>
-          </div>
-        </div>
-      </div>
+      <CartItem v-for="cartItem in getCartItems" :key="cartItem.id" :cartItem="cartItem"></CartItem>
     </div>
     <div class="total-values">
-      <p class="total-price">total price: <span>$11231 </span></p>
-      <p class="clear-all">Clear All</p>
+      <p class="total-price">total price: <span>$ {{totalPrice}} </span></p>
+      <p class="clear-all" @click="clearAll">Clear cart</p>
     </div>
   </div>
 </template>
 
 <script>
+import CartItem from './CartItem'
+import { mapGetters } from 'vuex'
 export default {
-  name: 'RightSidebar'
+  name: 'RightSidebar',
+  components: {
+    CartItem
+  },
+  methods: {
+    clearAll () {
+      this.$store.dispatch('clearAll')
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'getCartItems'
+    ]),
+    totalPrice () {
+      let totalPrice = 0
+      for (let key in this.getCartItems) {
+        totalPrice += this.getCartItems[key].price * this.getCartItems[key].quantity
+      }
+      return totalPrice
+    }
+  },
+  created () {
+    this.$store.dispatch('receiveCartItems')
+  }
 }
 </script>
 

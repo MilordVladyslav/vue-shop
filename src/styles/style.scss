@@ -1,12 +1,12 @@
 @import "variables.scss";
 @import "default.scss";
 @import "header.scss";
-@import "slider.scss";
 @import "content.scss";
 @import "main-content.scss";
 @import "right-sidebar.scss";
 @import "left-sidebar.scss";
 @import "item-selected";
-
+@import "item";
+@import "cart-item";
 @import "../node_modules/reset-css/reset.css";
 @import "../node_modules/nouislider/distribute/nouislider.css";

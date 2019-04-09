@@ -18,7 +18,7 @@
           <p> Size: {{item.size}} </p>
           <p class="price"> Price: <span> {{item.price}} </span></p>
         </div>
-        <div class="add-to-cart"> ToCart </div>
+        <div class="add-to-cart" @click="sendItemsToAPI"> ToCart </div>
       </div>
     </div>
   </div>
@@ -42,6 +42,14 @@ export default {
       window.history.length > 1
         ? this.$router.go(-1)
         : this.$router.push('/')
+    },
+    sendItemsToAPI () {
+      const cartItem = {}
+      for (let key in this.item) {
+        cartItem[key] = this.item[key]
+      }
+      console.log(cartItem)
+      this.$store.dispatch('sendCartItem', cartItem)
     }
   },
   created () {

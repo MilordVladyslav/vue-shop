@@ -55,7 +55,7 @@
         </p>
       </div>
       <div class="price-cart-block">
-        <p class="price">${{item.price}}</p>
+        <p class="price">$ {{item.price}}</p>
         <p class="size">Size:{{item.size}}</p>
         <router-link :to="{
         name: 'itemselected',
@@ -73,7 +73,7 @@
       </div>
       <div class="to-cart-block">
         <div class="img-wrapper">
-          <p>toCart</p>
+          <p @click="sendItemsToAPI">toCart</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,17 @@
 <script>
 export default {
   name: 'Item',
-  props: ['item']
+  props: ['item'],
+  methods: {
+    sendItemsToAPI () {
+      const cartItem = {}
+      for (let key in this.item) {
+        cartItem[key] = this.item[key]
+      }
+      console.log(cartItem)
+      this.$store.dispatch('sendCartItem', cartItem)
+    }
+  }
 }
 </script>
 

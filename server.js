@@ -5,8 +5,9 @@ const fs = require('fs')
 const path = require('path')
 
 const app = express()
-const FAKE_DELAY = 3000
+const FAKE_DELAY = 0
 const ITEMS_DATA_FILE = path.join(__dirname, 'items.json')
+const CART_DATA_FILE = path.join(__dirname, 'cart.json')
 
 app.set('port', (process.env.PORT || 3000))
 
@@ -29,6 +30,67 @@ app.get('/items/pricevalues', (req, res) => {
     res.send({
       fromPrice: values[0].price,
       toPrice: values[values.length - 1].price
+    })
+  })
+})
+app.get('/cart', (req, res) => {
+  fs.readFile(CART_DATA_FILE, (err, data) => {
+    res.setHeader('Cache-Control', 'no-cache')
+    res.json(JSON.parse(data))
+  })
+})
+app.post('/cart/clearAll', (req, res) => {
+  fs.readFile(CART_DATA_FILE, (err, data) => {
+    res.setHeader('Cache-Control', 'co-cache')
+    fs.writeFile(CART_DATA_FILE, JSON.stringify([], null, 4), () => {
+      res.json([])
+    })
+  })
+})
+app.post('/cart/removeitem', (req, res) => {
+  fs.readFile(CART_DATA_FILE, (err, data) => {
+    res.setHeader('Cache-Control', 'co-cache')
+    const cartItems = JSON.parse(data)
+    console.log(req.body.quantity)
+    cartItems.map((cartProduct) => {
+      if (cartProduct.id === req.body.id && cartProduct.quantity > 1) {
+        cartProduct.quantity--
+      } else if (cartProduct.id === req.body.id && cartProduct.quantity === 1) {
+        const cartIndexToRemove = cartItems.findIndex(cartProduct => cartProduct.id === req.body.id)
+        cartItems.splice(cartIndexToRemove, 1)
+      }
+    })
+    fs.writeFile(CART_DATA_FILE, JSON.stringify(cartItems, null, 4), () => {
+      res.json(cartItems)
+    })
+  })
+})
+app.post('/cart', (req, res) => {
+  fs.readFile(CART_DATA_FILE, (err, data) => {
+    res.setHeader('Cache-Control', 'no-cache')
+    const cartItems = JSON.parse(data)
+    const newCartItem = {
+      id: req.body.id,
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      gender: req.body.gender,
+      category: req.body.category,
+      color: req.body.color,
+      size: req.body.size,
+      image_tag: req.body.image_tag,
+      quantity: 1
+    }
+    let cartItemExists = false
+    cartItems.map((cartItem) => {
+      if (cartItem.id === newCartItem.id) {
+        cartItem.quantity++
+        cartItemExists = true
+      }
+    })
+    if (!cartItemExists) cartItems.push(newCartItem)
+    fs.writeFile(CART_DATA_FILE, JSON.stringify(cartItems, null, 4), () => {
+      res.json(cartItems)
     })
   })
 })
