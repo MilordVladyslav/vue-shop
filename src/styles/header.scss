@@ -14,7 +14,48 @@
     width: 40px;
   }
 }
-
+.mobile-nav-trigger {
+  margin-top: 35px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./assets/aligment.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mobile-nav-slide {
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background: $header-color;
+  top: 0;
+  overflow-y: auto;
+  opacity: .3;
+  transform: translateX(100%);
+  transition: all .3s ease-out;
+  .close-slide {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+.nav-items {
+  .nav-item a{
+    display: block;
+    width: 100%;
+    padding-top: 41px;
+    padding-bottom: 41px;
+    border-bottom: 1px solid silver;
+    text-align: center;
+    font-size: 18px;
+  }
+}
 .nav-bar {
   margin-bottom: 70px;
   height: 100px;
