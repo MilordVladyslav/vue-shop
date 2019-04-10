@@ -12,6 +12,16 @@
       box-shadow: 0px 5px 5px;
 
     }
+    .remove-item {
+      width: 30px;
+      height: 30px;
+      background-image: url("./assets/closeicondark.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      &:hover {
+        background-image: url("./assets/closeiconlight.png");
+      }
+    }
     .cart-description {
       .name {
         font-size: 18px;

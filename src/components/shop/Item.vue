@@ -72,8 +72,7 @@
         }}">more...</router-link>
       </div>
       <div class="to-cart-block">
-        <div class="img-wrapper">
-          <p @click="sendItemsToAPI">toCart</p>
+        <div class="img-wrapper" @click="sendItemsToAPI">
         </div>
       </div>
     </div>

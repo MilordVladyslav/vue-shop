@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="mobile-nav-slide" id="mobile-nav-slide">
-      <div class="close-slide" id="close-slide" @click="CloseNav">Close</div>
+      <div class="close-slide" id="close-slide" @click="CloseNav"></div>
       <ul class="nav-items" @click="CloseNav">
         <li class="nav-item"><router-link to="/">Shop</router-link></li>
         <li class="nav-item"><router-link to="/filters">Filters</router-link></li>

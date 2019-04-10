@@ -1,6 +1,6 @@
 <template>
   <div class="item-selected">
-    <p class="history-back" @click="goBack">Go Back</p>
+    <div class="history-back" @click="goBack"></div>
     <div class="parameters">
 
       <div class="picture">

@@ -1,14 +1,38 @@
 [
     {
+        "id": 2,
+        "name": "Lorem ipsum",
+        "description": "lorem ipsum super description awesome vue",
+        "price": 72,
+        "gender": "Female",
+        "category": "T-shirt",
+        "color": "Blue",
+        "size": "M",
+        "image_tag": "download (2).jpeg",
+        "quantity": 1
+    },
+    {
         "id": 1,
         "name": "Some name t-shirt",
         "description": "lorem ipsum super description awesome vue",
-        "price": 63,
+        "price": 53,
         "gender": "Male",
         "category": "T-shirt",
         "color": "Blue",
         "size": "M",
         "image_tag": "51D8vCzrE5L._UX385_.jpg",
-        "quantity": 1
+        "quantity": 4
+    },
+    {
+        "id": 0,
+        "name": "Awesome t-shirt",
+        "description": "lorem ipsum super description awesome vue",
+        "price": 93,
+        "gender": "Male",
+        "category": "T-shirt",
+        "color": "Blue",
+        "size": "M",
+        "image_tag": "awesomeshirt.jpeg",
+        "quantity": 2
     }
 ]

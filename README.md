@@ -27,3 +27,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Deacription
+Shop-website. Single Page Application. Vue, Vue CLI environment, Vuex, Vue-Router, API-based with Node.js, single file component aproach. With filters, sortings, flexbox, scss, lazy-load, preloaders, shoping-cart, 404 page. Responsive to every user's display, support browser history, synchronize with url-parameters. Ability to customize view.
+![alt text](screenshot.png "Screenshot")

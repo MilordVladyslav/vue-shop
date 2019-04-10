@@ -36,7 +36,8 @@
             {{cartItem.name}}
           </router-link>
         </h3>
-        <div class="remove-item" @click="removeItem">X</div>
+        <div class="remove-item" @click="removeItem">
+        </div>
       </div>
       <div class="parameters">
         <p class="price">$ {{cartItem.price}}</p>

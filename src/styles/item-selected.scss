@@ -13,7 +13,14 @@
     cursor: pointer;
     font-weight: bold;
     margin-bottom: 20px;
-    width: 70px;
+    width: 30px;
+    height: 30px;
+    background-image: url("./assets/arrow-back-dark.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    &:hover {
+      background-image: url("./assets/arrow-back.png");
+    }
   }
 
   .parameters {
