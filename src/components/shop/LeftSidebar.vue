@@ -79,12 +79,18 @@ export default {
         size: ''
       }
     },
+    goShopItemsMobile () {
+      if (window.innerWidth <= 1050) {
+        this.$router.push({ path: '/' })
+      }
+    },
     goBack () {
       if (this.$router.history.current.name === 'itemselected' && window.history.length > 1) this.$router.go(-1)
     },
     submitForm (evt) {
       evt.preventDefault()
       this.goBack()
+      this.goShopItemsMobile()
       this.requirements.fromPrice = document.querySelector('#from-price-place').innerHTML
       this.requirements.toPrice = document.querySelector('#to-price-place').innerHTML
       this.$router.push({

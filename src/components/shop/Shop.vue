@@ -1,9 +1,13 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <LeftSidebar></LeftSidebar>
+      <div class="left-sidebar-wrapper">
+        <LeftSidebar></LeftSidebar>
+      </div>
       <MainContent ></MainContent>
-      <RightSidebar></RightSidebar>
+      <div class="right-sidebar-wrapper">
+        <RightSidebar></RightSidebar>
+      </div>
     </div>
   </div>
 </template>

@@ -19,8 +19,8 @@
       <div class="close-slide" id="close-slide" @click="CloseNav">Close</div>
       <ul class="nav-items" @click="CloseNav">
         <li class="nav-item"><router-link to="/">Shop</router-link></li>
-        <li class="nav-item"><a href="#">Filters</a></li>
-        <li class="nav-item"><a href="#">Cart</a></li>
+        <li class="nav-item"><router-link to="/filters">Filters</router-link></li>
+        <li class="nav-item"><router-link to="/cart">Cart</router-link></li>
         <li class="nav-item"><router-link to="/blog">Our Blog</router-link></li>
         <li class="nav-item"><router-link to="/about">About Us</router-link></li>
       </ul>

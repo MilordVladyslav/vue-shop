@@ -5,7 +5,12 @@
 }
 
 @media screen and (max-width: 1050px) {
-
+  .mobile-nav-trigger {
+    display: block;
+  }
+  .mobile-nav-slide {
+    display: block;
+  }
   .nav-bar {
     margin-bottom: 30px;
     .nav {
@@ -25,11 +30,24 @@
     width: 200px;
     align-self: center;
   }
+  .left-sidebar-wrapper {
+    display: none;
+  }
   .left-sidebar {
+    margin: 0 auto;
+    .form-wrapper{
+      margin: 0 auto;
+    }
+  }
+  .right-sidebar-wrapper {
     display: none;
   }
   .right-sidebar {
-    display: none;
+    width: 70%;
+    margin: auto;
+    .cart-description {
+      width: 83%;
+    }
   }
   .content {
     justify-content: center;
@@ -66,9 +84,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  .nav-bar {
-    display: none;
-  }
   .item {
     width: 90%;
   }

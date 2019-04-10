@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "Some name t-shirt",
+        "description": "lorem ipsum super description awesome vue",
+        "price": 63,
+        "gender": "Male",
+        "category": "T-shirt",
+        "color": "Blue",
+        "size": "M",
+        "image_tag": "51D8vCzrE5L._UX385_.jpg",
+        "quantity": 1
+    }
+]
